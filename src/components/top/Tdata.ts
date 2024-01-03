@@ -7,7 +7,8 @@ export interface TdataProps {
 const Tdata: TdataProps[] = [
   {
     //   img: "/common/images/solar1.jpg",
-    img: "https://cdn.globalso.com/sorosolar/513.jpg",
+    // img: "https://cdn.globalso.com/sorosolar/513.jpg",
+    img: "img",
     para: "Solar Panel",
     desc: "300 Orders Last Week",
   },

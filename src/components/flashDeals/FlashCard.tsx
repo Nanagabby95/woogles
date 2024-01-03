@@ -1,7 +1,6 @@
 import { FaHeart, FaStar, FaPlus, FaLongArrowAltRight, FaLongArrowAltLeft } from "react-icons/fa";
 import Slider from "react-slick";
 import { useState } from "react";
-
 // Interfaces for product items and FlashCardProps
 interface ProductItem {
   id: number;
@@ -53,6 +52,20 @@ const FlashCard: React.FC<FlashCardProps> = ({ productItems, addToCart }) => {
     slidesToScroll: 1,
     nextArrow: <NextArrow />, // Using the custom NextArrow component here
     prevArrow: <PrevArrow />, // Using the custom PrevArrow component here
+    responsive: [
+      {
+        breakpoint: 1024, // Adjust this value as needed for tablet devices
+        settings: {
+          slidesToShow: 5, // Number of slides to show for tablets
+        },
+      },
+      {
+        breakpoint: 768, // Adjust this value as needed for mobile devices
+        settings: {
+          slidesToShow: 2, // Number of slides to show for mobile
+        },
+      },
+    ],
   };
 
   return (

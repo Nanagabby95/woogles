@@ -34,8 +34,8 @@ const Dcard = () => {
           return (
             <div className="box product" key={index}>
               <div className="box">
-                <div className="img discount-img-div">
-                  <img src={value.img} alt="" width="100%" />
+                <div className="">
+                  <img src={value.img} alt="" />
                 </div>
                 <h4 className="names">{value.name}</h4>
                 <h4>${value.price}</h4>

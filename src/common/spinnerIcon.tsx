@@ -1,7 +1,9 @@
-import React from 'react';
 import { IoIosRefresh } from 'react-icons/io';
 
-const SpinnerIcon = () => {
+interface SpinnerIconProps {
+}
+
+const SpinnerIcon: React.FC<SpinnerIconProps> = (props) => {
   return <IoIosRefresh className="spinner-icon" />;
 };
 

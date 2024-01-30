@@ -22,25 +22,47 @@ const Search: React.FC<SearchProps> = ({ cartItem }) => {
     setSearchResults(query.length > 0 ? filtered : []);
   };
 
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      const filtered = Tdata.filter(product =>
+        product.para.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setSearchResults(filtered);
+    }
+  };
+
   return (
     <div>
       <section className="search">
-<div className="container c_flex">
+        <div className="container c_flex">
           <div className="width">
             <img src={logo} alt="" className="logo" />
           </div>
 
-        <div className="search-box f_flex">
-          <FaSearch size={30} className="searchReactIcon" />
-          <input
-            type="text"
-            placeholder="Search for products and hit enter"
-            value={searchQuery}
-            onChange={handleInputChange}
-          />
-          <span>All Products</span>
+          <div className="search-box f_flex">
+            <FaSearch size={30} className="searchReactIcon" />
+            <input
+              type="text"
+              placeholder="Search for products"
+              value={searchQuery}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyPress}
+            />
+            <span>All Products</span>
+          </div>
+
+          <div className="f_flex width"> {/* Container for user and cart icons */}
+            <div className="icon">
+              <FaUser className="icon-circle" />
+            </div>
+            <div className="cart">
+              <Link to="/cart">
+                <FaShoppingBag className="icon-circle" />
+              </Link>
+              <span>{cartItem.length === 0 ? "" : cartItem.length}</span>
+            </div>
+          </div>
         </div>
-</div>
 
         {searchQuery.length > 0 && (
           <div className="search-results">
@@ -55,16 +77,6 @@ const Search: React.FC<SearchProps> = ({ cartItem }) => {
             ))}
           </div>
         )}
-
-        <div className="icon f_flex width">
-          <FaUser className="icon-circle" />
-          <div className="cart">
-            <Link to="/cart">
-              <FaShoppingBag className="icon-circle" />
-            </Link>
-            <span>{cartItem.length === 0 ? "" : cartItem.length}</span>
-          </div>
-        </div>
       </section>
     </div>
   );

@@ -4,6 +4,8 @@ export interface SlideData {
     desc: string;
     img: string;
   }
+
+  // https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/89/7862522/1.jpg?8705
    
   const sData: SlideData[] = [
         {
